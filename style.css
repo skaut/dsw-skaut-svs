@@ -1,0 +1,764 @@
+/*
+ Theme Name:   Scout
+ Theme URI:    http://skaut.cz/theme
+ Description:  Theme for Junák - český skaut units websites
+ Author:       Jan Teplý
+ Author URI:   http://honzateply.cz
+ Template:     zerif-lite
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, blog
+ Text Domain:  scout-theme
+*/
+
+/*--------------------------------------------------------------
+0.0 - Scout specific fonts
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'SKAUT-Bold';
+  src: url('fonts/SKAUT-Bold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/SKAUT-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/SKAUT-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/SKAUT-Bold.svg#SKAUT-Bold') format('svg'); /* Legacy iOS */
+}
+@font-face {
+    font-family: 'themix';
+    src: url('fonts/TheMix_LT_400.eot');
+    src: url('fonts/TheMix_LT_400.eot? #iefix') format('embedded-opentype');
+    src: url('fonts/TheMix_LT_400.woff') format('woff'),
+         url('fonts/TheMix_LT_400.svg#themix') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'themix';
+    src: url('fonts/TheMix_LT_400i.eot');
+    src: url('fonts/TheMix_LT_400i.eot? #iefix') format('embedded-opentype');
+    src: url('fonts/TheMix_LT_400i.woff') format('woff'),
+         url('fonts/TheMix_LT_400i.svg#themix') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'themix';
+    src: url('fonts/TheMix_LT_700.eot');
+    src: url('fonts/TheMix_LT_700.eot? #iefix') format('embedded-opentype');
+    src: url('fonts/TheMix_LT_700.woff') format('woff'),
+         url('fonts/TheMix_LT_700.svg#themix') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}  
+@font-face {
+    font-family: 'themix';
+    src: url('fonts/TheMix_LT_700i.eot');
+    src: url('fonts/TheMix_LT_700i.eot? #iefix') format('embedded-opentype');
+    src: url('fonts/TheMix_LT_700i.woff') format('woff'),
+         url('fonts/TheMix_LT_700i.svg#themix') format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+	
+/*--------------------------------------------------------------
+1.0 - Reset	
+--------------------------------------------------------------*/
+
+
+body {
+	font-family: themix, 'Lato', Helvetica, sans-serif !important;
+}		
+
+a {
+	color: #EA614A;
+}
+
+/*--------------------------------------------------------------
+2.0 - Typography	
+--------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'SKAUT-Bold', Helvetica, sans-serif;
+}
+
+h1,h2 {	
+	font-family: 'SKAUT-Bold', Helvetica, sans-serif;
+}
+
+/*--------------------------------------------------------------
+3.0 - Buttons	
+--------------------------------------------------------------*/
+.red-btn {
+	background: #EA614A;
+}
+
+/*--------------------------------------------------------------
+4.0 - Elements	
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+4.1 - Colors
+--------------------------------------------------------------*/
+
+.red-bg {
+	background: #EA614A;	
+}
+
+.red-text{
+	color: #EA614A;
+}	
+
+.red-border-bottom:before{
+	background: #EA614A;
+}
+
+input[type="submit"] {
+    background-color: #EA614A;
+}
+
+input:focus {
+    outline-color: #EA614A !important;
+}
+
+/*---------------------------------------
+**   5.0 Navigation
+-----------------------------------------*/
+/*---------------------------------------
+**   5.1 Links
+-----------------------------------------*/
+a {
+    color: #EA614A;
+ }
+a:visited {
+    color: #EA614A;
+}
+
+.nav-links a {
+    color:#EA614A;
+}
+
+
+/*---------------------------------------
+**  9.0 Widgets
+-----------------------------------------*/
+
+
+.widget .widget-title:before{
+    background: #EA614A;
+}
+
+/*---------------------------------------
+**  10.1 Posts and Pages
+-----------------------------------------*/
+
+.entry-title:before {
+    background: #EA614A;
+}
+
+/*---------------------------------------
+**  10.3 Comments
+-----------------------------------------*/
+.comment-form #submit, .comment-reply-link {
+    background:#EA614A;
+    border-color:#EA614A;
+}
+
+/*---------------------------------------
+**  Header
+-----------------------------------------*/
+
+.section-header .section-legend {
+    color: #808080;
+}
+
+/*---------------------------------------
+**  Section - Home
+-----------------------------------------*/
+.header.header {
+    min-height:76px !important;
+}
+
+.header-content-wrap {
+    background: rgba(0, 0, 0, 0);
+    padding: 25vh 0 210px;
+    height:100vh;
+}
+.navbar-inverse .navbar-nav ul.sub-menu li.link-focus > a {
+    color:#EA614A;
+}
+
+.navbar-inverse .navbar-nav>li>a.link-focus {
+    color: #EA614A;
+}
+
+.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {
+    background-color: #EA614A;
+}
+
+.navbar-toggle.active{
+    background-color: #EA614A !important;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus {
+    color: #EA614A;
+}
+
+.navbar-inverse .navbar-nav>li.current>a {
+    color: #EA614A;
+}
+
+li.current>a:before {
+    background: #EA614A;
+}
+
+ul.nav > li.current > a:before,
+.page ul.nav > li.current-menu-item > a:before,
+.single-post ul.nav > li.current-menu-item > a:before,
+.archive ul.nav > li.current-menu-item > a:before {
+    background: #EA614A;
+}
+
+ul.nav > li.current_page_item.current > a:before {
+    background: #EA614A;
+}
+
+#carousel-homepage-latestnews .item .latestnews-box .latestnews-title a:before {
+    background: #EA614A;
+    width: 100%;
+    left: 0;
+}
+
+#carousel-homepage-latestnews .item .latestnews-box:nth-child(4n+1) .latestnews-title a:before {
+    background: #EA614A;
+}
+
+#carousel-homepage-latestnews .carousel-inner .item .latestnews-title {
+    margin-bottom: 15px;
+}
+
+/*---------------------------------------
+**   Section: Big title
+-----------------------------------------*/
+
+.intro-text, intro-text a{
+    text-shadow: 0px 0px 30px rgba(150, 150, 150, 1);
+    margin-top: 15px;
+}
+
+/*---------------------------------------
+**   Section: Our focus
+-----------------------------------------*/
+
+.focus-box p {
+    font-size: 17px;
+}
+
+.focus-box h3 {
+    margin-bottom: 15px;
+}
+
+
+.focus-box .service-icon .pixeden  {
+    transition: all 0.3s ease-out;
+}
+
+.focus-box .service-icon .pixeden:hover  {
+    transform: scale(1.1);
+}
+
+.focus-box .service-icon {
+    border: 0px;
+}
+
+
+#focus span:nth-child(4n+1) .focus-box .service-icon:hover, #focus span:nth-child(4n+1) .focus-box .service-icon:focus {
+    border: 0;
+}
+#focus span:nth-child(4n+2)  .focus-box .service-icon:hover, #focus span:nth-child(4n+2)  .focus-box .service-icon:focus {
+    border: 0;
+}
+#focus span:nth-child(4n+3) .focus-box .service-icon:hover, #focus span:nth-child(4n+3) .focus-box .service-icon:focus {
+    border: 0;
+}
+#focus span:nth-child(4n+4) .focus-box .service-icon:hover, #focus span:nth-child(4n+4) .focus-box .service-icon:focus {
+    border: 0;
+}
+
+/*---------------------------------------
+**   Secction:  Separator one        -----
+-----------------------------------------*/
+
+.separator-one {
+    background: #88BA25;
+}
+
+/****************************************************************/
+/***********************  PIRATE FORMS style ********************/
+/****************************************************************/
+.pirate_forms_error_box p {
+    background: #EA614A;
+}
+
+
+/*---------------------------------------
+ **   Secction:  Calendar        -----
+-----------------------------------------*/
+.calendar {
+    background: rgba(256, 256, 256, 0.8);
+    padding: 100px 0 100px 0;
+}
+/****************************************************************/
+/***********************  Simple Calendar style *****************/
+/****************************************************************/
+/* Home page calendar */
+
+.simcal-default-calendar .simcal-current h3{
+    font-family: themix !important;
+    color: #005b71;
+}
+
+.simcal-events-list-container dt,
+.simcal-events-list-container dd{
+    list-style-type: none;
+}
+
+.simcal-day-label{
+    border-bottom: none !important;
+}
+
+.simcal-events{
+    list-style-type: none;
+}
+
+.simcal-day-label{
+    display: none;
+}
+
+.simcal-events-list-container dd{
+    padding: 10px 10px 0px 20px;
+    background-color: #fbfeff;
+    margin-bottom: 7px !important;
+    font-size: 14px;
+    border-radius: 14px;
+}
+
+.simcal-calendar-list .half .simcal-events-list-container dd{
+    padding-bottom: 10px;
+}
+
+.simcal-calendar-list .simcal-events{
+    margin-bottom: 0px;
+}
+
+.simcal-calendar-list .simcal-events{
+    margin: 0 !important;
+    font-size: 14px;
+}
+
+.simcal-calendar-list .simcal-event-details em{
+    font-style: normal;
+    font-weight: bold;
+}
+
+.simcal-calendar-list .simcal-event-details{
+    font-size: 18px;
+    font-family: themix !important;
+}
+
+.simcal-calendar-list .simcal-event-title{
+    font-size: 24px;
+    font-family: SKAUT-Bold !important;
+    color: #267284 !important;
+}
+.simcal-calendar-list .simcal-event-details em{
+    font-size: 18px;
+    font-family: themix !important;
+}
+.simcal-calendar-list .simcal-event-description{
+    font-size: 18px;
+    color: #267284 !important;
+    font-family: themix !important;
+}
+
+.simcal-calendar-list .simcal-event-description{
+    margin-bottom: 0px !important;
+}
+
+/* CelkovÃ½ kalendÃ¡Å™ calendar */
+.simcal-events{
+    margin-bottom: 0px;
+}
+
+.simcal-calendar .simcal-events{
+    margin: 0 !important;
+    font-size: 11px;
+}
+
+.simcal-event-details em{
+    color: #005b71;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.simcal-event-details{
+    font-size: 12px;
+    font-family: themix !important;
+}
+
+.simcal-event-details p a{
+    font-size: 1.4em;
+    font-family: themix !important;
+}
+
+.simcal-event-title{
+    font-size: 15px;
+    font-family: 'SKAUT-Bold' !important;
+    color: #000000 !important;
+}
+.simcal-event-details em{
+    font-size: 12px;
+    font-family: themix !important;
+}
+.simcal-event-description{
+    font-size: 12px;
+    color: #5eb3c7 !important;
+    font-family: themix !important;
+}
+
+.simcal-event-description{
+    margin-bottom: 0px !important;
+}
+
+.simcal-icon-right:before, .simcal-icon-left:before{
+    color: #005b71;
+}
+
+
+.simcal-default-calendar-list .simcal-event-details .simcal-event-description, .simcal-default-calendar-list .simcal-event-details p {
+    margin: 0 0 0.5em;
+}
+/*---------------------------------------
+**   Section: About us;              -----
+-----------------------------------------*/
+.about-us {
+    background: #294885;
+}
+
+.about-us p {
+    color: #e2e2e2;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.about-us .big-intro {
+    font-size: 45px;
+}
+/*---------------------------------------
+**   Section: Our team;              -----
+-----------------------------------------*/
+
+.our-team {
+    background: rgb(255,255,255);
+}
+
+
+.team-member .social-icons ul li a:hover {
+    color: #EA614A;
+}
+.our-team .row > span:nth-child(4n+1) .red-border-bottom:before{
+    background: #EA614A;
+}
+
+.our-team  .red-border-bottom:before{
+    width: 100%;
+    bottom: -4px;
+    left: 0%;
+}
+
+.our-team .team-member .position {
+    font-size: 14px;
+}
+
+
+
+/*---------------------------------------
+**   Packages               -----		 **
+-----------------------------------------*/
+.package .order-now:hover {
+    background: #EA614A;
+}
+
+/*----------------------------------------
+**   Testimonial           -----		 **
+-----------------------------------------*/
+.testimonial {
+    background: #A38456;
+    padding-bottom: 90px;
+}
+
+.feedback-box .message, .testimonial .widget_zerif_testim-widget .message {
+    color: #777777;
+}
+
+.feedback-box .client-info .client-name, .testimonial .widget_zerif_testim-widget .client-name {
+    font-family: themix, sans-serifserif;
+}
+
+/*----------------------------------------
+**   Purchase now
+-----------------------------------------*/
+.purchase-now {
+    background: rgba(236, 160, 56, 1);
+}
+
+/*----------------------------------------
+**   Contact us
+-----------------------------------------*/
+.contact-us .error p {
+background: #EA614A;
+}
+
+/*---------------------------------------
+**   Footer
+-----------------------------------------*/
+
+.company-details {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.company-details a:hover {
+    color: #EA614A;
+    transform: scale(1.1);
+}
+
+.social li a:hover {
+    color: #EA614A;
+}
+
+.copyright {
+    background: none;
+}
+
+.scout-copyright {
+    color:#939393!important;
+}
+
+.scout-copyright-box {
+    width: 100%;
+    color: #666;
+}
+
+/*---------------------------------------
+**   Section blog
+-----------------------------------------*/
+article .posted-on a:hover{
+    color: #EA614A;
+}
+
+.entry-footer a:hover{
+    color: #EA614A;
+}
+
+.entry-title a:hover{
+    color: #EA614A;
+}
+
+.entry-title:after {
+    background: #EA614A;
+}
+
+.listpost-content-wrap .entry-title a:after {
+    background: #EA614A;
+}
+
+.entry-title{
+    font-size: 35px;
+    line-height: inherit;
+}
+
+.entry-footer-large a:hover{
+    color: #EA614A;
+}
+
+.widget_calendar a {
+    color: #EA614A;
+}
+
+.widget_calendar a:hover {
+    background-color: #EA614A;
+}
+
+
+@media (max-width: 1200px) {
+    .header-content-wrap    .blog-header-content-wrap {
+        padding: 25vh 0 150px;
+
+    }
+}
+
+/*---------------------------------------
+ **   Easy facebook feed
+-----------------------------------------*/
+
+.eff-panel{
+    width: 23%;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0.5% 0.5% 30px 0.5%;
+ //   border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 767px) {
+    .eff-panel{
+        width:49%;
+    }
+}
+
+@media (max-width: 480px) {
+    .eff-panel{
+        width:100%;
+    }
+}
+
+.eff-panel .eff-panel-heading {
+    background: none;
+    border: none;
+    overflow: visible;
+    line-height: 35px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.eff-panel .eff-panel-heading img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: block;
+    float: none;
+}
+
+.eff-panel .eff-panel-heading a {
+    position:relative;
+    font-family: 'themix', Helvetica, sans-serif;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+
+.eff-panel .eff-panel-heading a:after {
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #EA614A;
+    bottom: -9px;
+    left: 0px;
+}
+
+.eff-panel p{
+    font-size: 16px;
+    line-height: 20px;
+    color: #777777;
+}
+
+.eff-panel .eff-panel-body {
+    border: none;
+    padding: 10px;
+}
+
+
+.eff-panel .eff-panel-body>p{
+    display: block;
+    display: -webkit-box;
+    text-align: left;
+    max-height: 500px;
+    -webkit-line-clamp: 20;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.eff-panel .eff-panel-body>.eff-panel-link, .eff-panel .eff-panel-body .cff-html5-video{
+    //width: 20%;
+    text-align: left;
+}
+
+.eff-panel .eff-panel-body .eff-panel-link a p {
+    margin: 0;
+}
+
+.eff-panel .eff-panel-footer {
+    padding: 10px 10px 5px;
+    background: none;
+    border: none;
+    overflow: auto;
+}
+
+.eff-panel .eff-panel-footer .eff-time {
+    display: none;
+}
+
+.eff-panel .eff-panel-footer .eff-view {
+    float: none;
+}
+
+
+
+
+
+/*---------------------------------------
+ **   Responsive
+-----------------------------------------*/
+@media (max-width: 1200px) {
+    .header-content-wrap,
+    .blog-header-content-wrap {
+        padding: 25vh 0 150px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-content-wrap,
+    .blog-header-content-wrap {
+        padding: 25vh 0 150px;
+    }
+}
+
+@media (max-width: 767px) {
+    .dropdownmenu {
+        background: url(images/menu-icon.png) center center no-repeat #EA614A;
+    }
+
+    .this-open > a {
+        color: #EA614A !important;
+    }
+
+    .header-content-wrap, .blog-header-content-wrap {
+        padding-top: 25vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content-wrap, .blog-header-content-wrap {
+        padding-top: 25vh;
+    }
+}
+
+@media (max-width: 320px) {
+    .header-content-wrap, .blog-header-content-wrap {
+        padding-top: 25vh;
+    }
+}
+
+
