@@ -363,16 +363,18 @@ function scout_check_for_updates($transient) {
 		return $transient;
 	}
 
-	$asset = null;
-	foreach ($actual->assets as $a) {
-		if ($a->name === 'dsw-skaut-svs-release.zip') {
-			$asset = $a;
-			break;
+	if (preg_match('/v\d+\.\d+/', $actual->tag_name) === 1) {
+		$asset = null;
+		foreach ($actual->assets as $a) {
+			if ($a->name === 'dsw-skaut-svs-release.zip') {
+				$asset = $a;
+				break;
+			}
 		}
-	}
-	$version = substr($actual->tag_name, 1);
-	if ($asset !== null && $actual->tag_name[0] === 'v' && scout_theme_version_compare($transient->checked['dsw-skaut-svs'], $version)) {
-		$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
+		$version = substr($actual->tag_name, 1);
+		if ($asset !== null && scout_theme_version_compare($transient->checked['dsw-skaut-svs'], $version)) {
+			$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
+		}
 	}
 	return $transient;
 }
