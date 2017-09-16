@@ -319,6 +319,36 @@ function scout_register_required_plugins() {
     tgmpa($plugins, $config);
 }
 
+/**
+ * @param string $a in form "<major>.<minor>" - 1.1 for example
+ * @param string $b in form "<major>.<minor>" - 1.1 for example
+ * @return bool|int $a < $b => -1, $a == $b => 0, $a > $b => 1, false otherwise
+ */
+function scout_theme_version_compare($a, $b) {
+	$as = explode('.', $a);
+	if (count($as) !== 2) {
+		return false;
+	}
+
+	$bs = explode('.', $b);
+	if (count($bs) !== 2) {
+		return false;
+	}
+	if ($as[0] > $bs[0]) {
+		return 1;
+	} elseif ($as[0] === $bs[0]) {
+		if ($as[1] > $bs[1]) {
+			return 1;
+		} elseif ($as[1] === $bs[1]) {
+			return 0;
+		} else {
+			return -1;
+		}
+	} else {
+		return 0;
+	}
+}
+
 function scout_check_for_updates($transient) {
 	if (empty($transient->checked['dsw-skaut-svs'])) {
 		return $transient;
@@ -335,12 +365,14 @@ function scout_check_for_updates($transient) {
 
 	$asset = null;
 	foreach ($actual->assets as $a) {
-		if (preg_match('/dsw-skaut-svs-\d+\.\d+\.\d+-compiled\.zip/', $a->name) === 1) {
+		if ($a->name === '/dsw-skaut-svs-compiled\.zip/') {
 			$asset = $a;
+			break;
 		}
 	}
-	if (!empty($asset) && version_compare($transient->checked['dsw-skaut-svs'], ltrim($actual->tag_name, 'v'), '<')) {
-		$transient->response['dsw-skaut-svs'] = ['new_version' => ltrim($actual->tag_name, 'v'), 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
+	$version = substr($actual->tag_name, 1);
+	if ($asset !== null && $actual->tag_name[0] === 'v' && scout_theme_version_compare($transient->checked['dsw-skaut-svs'], $version)) {
+		$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
 	}
 	return $transient;
 }
