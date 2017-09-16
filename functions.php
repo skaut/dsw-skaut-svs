@@ -365,7 +365,7 @@ function scout_check_for_updates($transient) {
 
 	$asset = null;
 	foreach ($actual->assets as $a) {
-		if ($a->name === '/dsw-skaut-svs-compiled\.zip/') {
+		if ($a->name === 'dsw-skaut-svs-release.zip') {
 			$asset = $a;
 			break;
 		}
