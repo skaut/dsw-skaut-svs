@@ -324,7 +324,7 @@ function scout_register_required_plugins() {
  * @param string $b in form "<major>.<minor>" - 1.1 for example
  * @return bool|int $a < $b => -1, $a == $b => 0, $a > $b => 1, false otherwise
  */
-function scout_theme_version_compare($a, $b) {
+function scout_theme_version_compare(string $a, string $b) {
 	$as = explode('.', $a);
 	if (count($as) !== 2) {
 		return false;
