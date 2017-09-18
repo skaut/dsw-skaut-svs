@@ -319,4 +319,66 @@ function scout_register_required_plugins() {
     tgmpa($plugins, $config);
 }
 
+/**
+ * @param string $a in form "<major>.<minor>" - 1.1 for example
+ * @param string $b in form "<major>.<minor>" - 1.1 for example
+ * @return bool|int $a < $b => -1, $a == $b => 0, $a > $b => 1, false otherwise
+ */
+function scout_theme_version_compare(string $a, string $b) {
+	$as = explode('.', $a);
+	if (count($as) !== 2) {
+		return false;
+	}
+
+	$bs = explode('.', $b);
+	if (count($bs) !== 2) {
+		return false;
+	}
+	if ($as[0] > $bs[0]) {
+		return 1;
+	} elseif ($as[0] === $bs[0]) {
+		if ($as[1] > $bs[1]) {
+			return 1;
+		} elseif ($as[1] === $bs[1]) {
+			return 0;
+		} else {
+			return -1;
+		}
+	} else {
+		return 0;
+	}
+}
+
+function scout_check_for_updates($transient) {
+	if (empty($transient->checked['dsw-skaut-svs'])) {
+		return $transient;
+	}
+	$raw = wp_remote_get('https://api.github.com/repos/skaut/dsw-skaut-svs/releases/latest', ['user-agent' => 'skaut']);
+	if (is_wp_error($raw) || wp_remote_retrieve_response_code($raw) !== 200) {
+		return $transient;
+	}
+
+	$actual = json_decode($raw['body']);
+	if ($actual === null) {
+		return $transient;
+	}
+
+	if (preg_match('/v\d+\.\d+/', $actual->tag_name) === 1) {
+		$asset = null;
+		foreach ($actual->assets as $a) {
+			if ($a->name === 'dsw-skaut-svs-release.zip') {
+				$asset = $a;
+				break;
+			}
+		}
+		$version = substr($actual->tag_name, 1);
+		if ($asset !== null && scout_theme_version_compare($transient->checked['dsw-skaut-svs'], $version)) {
+			$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
+		}
+	}
+	return $transient;
+}
+
+add_filter('pre_set_site_transient_update_themes', 'scout_check_for_updates');
+
 //set_theme_mod( 'custom_logo',attachment_url_to_postid(get_stylesheet_directory_uri() . "/images/skaut_svetlusky.png"));
