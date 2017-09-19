@@ -250,11 +250,13 @@ ul.nav > li.current_page_item.current > a:before {
 -----------------------------------------*/
 
 .focus-box p {
-    font-size: 17px;
+    color: #333333;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .focus-box h3 {
-    margin-bottom: 15px;
+    margin-bottom: 17px;
 }
 
 
@@ -476,7 +478,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 
 .our-team .team-member {
-    overflow: visible;
+
 }
 
 .our-team .team-member .position {
@@ -508,7 +510,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 
 .feedback-box .message, .testimonial .widget_zerif_testim-widget .message {
-    color: #777777;
+    color: #333333;
 }
 
 .feedback-box .client-info .client-name, .testimonial .widget_zerif_testim-widget .client-name {
@@ -607,7 +609,16 @@ article .posted-on a:hover{
 
     }
 }
+/*---------------------------------------
+ **   Latest news
+-----------------------------------------*/
 
+.latesnews-content p,
+.latesnews-content {
+    color: #333333;
+    font-size: 16px;
+    line-height: 20px;
+}
 /*---------------------------------------
  **   Easy facebook feed
 -----------------------------------------*/
@@ -692,6 +703,9 @@ article .posted-on a:hover{
 
 
 .eff-panel .eff-panel-body>p{
+    color: #333333;
+    font-size: 16px;
+    line-height: 20px;
    // display: block;
     display: -webkit-box;
     text-align: left;
@@ -703,6 +717,9 @@ article .posted-on a:hover{
 }
 
 .eff-panel .eff-panel-body .eff-panel-link>p{
+    color: #333333;
+    font-size: 16px;
+    line-height: 20px;
     max-height: 100px;
    // display: block;
     display: -webkit-box;
