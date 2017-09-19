@@ -617,6 +617,19 @@ function scout_customize_register( $wp_customize ) {
     /**********	FACEBOOK SUBSECTION ***************/
     /**********************************************/
 
+    /* face news show/hide */
+    $wp_customize->add_setting( 'scout_facebook_show', array(
+        'sanitize_callback' => 'zerif_sanitize_checkbox',
+        'transport' => 'postMessage'
+    ) );
+
+    $wp_customize->add_control( 'scout_facebook_show', array(
+        'type' => 'checkbox',
+        'label' => __('Zobrazit facebook feed?','scout-theme'),
+        'section' => 'zerif_latestnews_section',
+        'default' => true,
+    ) );
+
     /* face title */
     $wp_customize->add_setting( 'scout_facebook_title', array(
         'sanitize_callback' => 'zerif_sanitize_input',
@@ -624,7 +637,7 @@ function scout_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'scout_facebook_title', array(
-        'label'    		=> __( 'Facebook - název', 'scout-theme' ),
+        'label'    		=> __( 'Nadpis Facebook', 'scout-theme' ),
         'section'  		=> 'zerif_latestnews_section',
         'default'       => __( 'Facebook', 'scout-theme' ),
         'priority'    	=> 4,
@@ -637,7 +650,7 @@ function scout_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'scout_facebook_subtitle', array(
-        'label'    		=> __( 'Facebook - podnázev', 'scout-theme' ),
+        'label'    		=> __( 'Podnadpis Facebook', 'scout-theme' ),
         'section'  		=> 'zerif_latestnews_section',
         'priority'   	=> 5,
     ) );

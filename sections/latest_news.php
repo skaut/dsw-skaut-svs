@@ -153,7 +153,7 @@
 
 			echo '</div><!-- .container -->';
 
-
+			if( ! defined("EASY_FACEBOOK_FEED_VERSION") && get_theme_mod('scout_facebook_show') ) {
 			echo '<div class="container">';
 
     		echo '<!-- SECTION HEADER -->';
@@ -200,7 +200,7 @@ echo '<div class="row eff">';
 
 			echo '</div>';
 			echo '<!-- / END CONTAINER -->';
-
+	}
 			zerif_bottom_latest_news_trigger();
 
 		echo '</section>';

@@ -475,10 +475,21 @@ ul.nav > li.current_page_item.current > a:before {
     left: 0%;
 }
 
+.our-team .team-member {
+    overflow: visible;
+}
+
 .our-team .team-member .position {
     font-size: 14px;
 }
 
+.our-team .team-member .profile-pic {
+    transition: all 0.3s ease-out;
+}
+
+.our-team .team-member .profile-pic:hover  {
+    transform: scale(1.1);
+}
 
 
 /*---------------------------------------
@@ -629,10 +640,12 @@ article .posted-on a:hover{
     text-align: center;
     font-size: 20px;
     font-weight: 700;
+    height:auto;
 }
 
 
 .eff-panel .eff-panel-heading img {
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -677,12 +690,24 @@ article .posted-on a:hover{
 }
 
 
+
 .eff-panel .eff-panel-body>p{
-    display: block;
+   // display: block;
     display: -webkit-box;
     text-align: left;
-    max-height: 500px;
-    -webkit-line-clamp: 20;
+    max-height: 200px;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.eff-panel .eff-panel-body .eff-panel-link>p{
+    max-height: 100px;
+   // display: block;
+    display: -webkit-box;
+    text-align: left;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -704,6 +729,7 @@ article .posted-on a:hover{
     background: none;
     border: none;
     overflow: auto;
+    height:auto;
 }
 
 .eff-panel .eff-panel-footer .eff-time {
