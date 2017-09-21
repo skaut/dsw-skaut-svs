@@ -319,36 +319,6 @@ function scout_register_required_plugins() {
     tgmpa($plugins, $config);
 }
 
-/**
- * @param string $a in form "<major>.<minor>" - 1.1 for example
- * @param string $b in form "<major>.<minor>" - 1.1 for example
- * @return bool|int $a < $b => -1, $a == $b => 0, $a > $b => 1, false otherwise
- */
-function scout_theme_version_compare(string $a, string $b) {
-	$as = explode('.', $a);
-	if (count($as) !== 2) {
-		return false;
-	}
-
-	$bs = explode('.', $b);
-	if (count($bs) !== 2) {
-		return false;
-	}
-	if ($as[0] > $bs[0]) {
-		return 1;
-	} elseif ($as[0] === $bs[0]) {
-		if ($as[1] > $bs[1]) {
-			return 1;
-		} elseif ($as[1] === $bs[1]) {
-			return 0;
-		} else {
-			return -1;
-		}
-	} else {
-		return 0;
-	}
-}
-
 function scout_check_for_updates($transient) {
 	if (empty($transient->checked['dsw-skaut-svs'])) {
 		return $transient;
@@ -372,7 +342,7 @@ function scout_check_for_updates($transient) {
 			}
 		}
 		$version = substr($actual->tag_name, 1);
-		if ($asset !== null && scout_theme_version_compare($transient->checked['dsw-skaut-svs'], $version)) {
+		if ($asset !== null && version_compare( $transient->checked['dsw-skaut-svs'], $version, '>' )) {
 			$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
 		}
 	}
