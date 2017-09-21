@@ -342,7 +342,7 @@ function scout_check_for_updates($transient) {
 			}
 		}
 		$version = substr($actual->tag_name, 1);
-		if ($asset !== null && version_compare( $transient->checked['dsw-skaut-svs'], $version, '>' )) {
+		if ($asset !== null && version_compare( $transient->checked['dsw-skaut-svs'], $version, '<' )) {
 			$transient->response['dsw-skaut-svs'] = ['new_version' => $version, 'url' => $actual->html_url, 'package' => $asset->browser_download_url];
 		}
 	}
