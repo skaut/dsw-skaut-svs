@@ -321,11 +321,16 @@ function scout_register_required_plugins() {
 
 function scout_check_for_updates( $transient ) {
 
+	if ( empty( $transient->checked ) ) {
+		return $transient;
+	}
+
 	$themeName = '';
-	if ( isset( $transient->checked['dsw-skaut-svs'] ) ) {
-		$themeName = 'dsw-skaut-svs';
-	} elseif ( isset( $transient->checked['dsw-skaut-svs-master'] ) ) {
-		$themeName = 'dsw-skaut-svs-master';
+
+	foreach ( $transient->checked as $theme => $version ) {
+		if ( strpos( $theme, 'dsw-skaut-svs' ) !== false ) {
+			$themeName = $theme;
+		}
 	}
 
 	if ( $themeName === '' ) {
