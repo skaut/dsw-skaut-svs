@@ -342,7 +342,7 @@ function scout_check_for_updates( $transient ) {
 		return $transient;
 	}
 
-	if ( preg_match( '/v\d+\.\d+/', $actual->tag_name ) === 1 ) {
+	if ( preg_match( '~\d+\.\d+~', $actual->tag_name ) === 1 ) {
 		$asset = null;
 		foreach ( $actual->assets as $a ) {
 			if ( $a->name === 'dsw-skaut-svs-release.zip' ) {
