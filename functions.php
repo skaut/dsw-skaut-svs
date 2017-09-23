@@ -344,7 +344,13 @@ function scout_check_for_updates( $transient ) {
 
 	if ( preg_match( '~\d+\.\d+~', $actual->tag_name ) === 1 ) {
 		$package = $actual->zipball_url;
-		$version = substr( $actual->tag_name, 1 );
+
+		if ( strpos( $actual->tag_name, 'v' ) === 0 ) {
+			$version = substr( $actual->tag_name, 1 );
+		} else {
+			$version = $actual->tag_name;
+		}
+
 		if ( $package !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
 			$transient->response[ $themeName ] = [
 				'new_version' => $version,
