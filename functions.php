@@ -320,7 +320,7 @@ function scout_register_required_plugins() {
 }
 
 function scout_check_for_updates($transient) {
-	if (empty($transient->checked['dsw-skaut-svs'])) {
+	if (empty($transient->checked['dsw-skaut-svs']) && empty($transient->checked['dsw-skaut-svs-master'])) {
 		return $transient;
 	}
 	$raw = wp_remote_get('https://api.github.com/repos/skaut/dsw-skaut-svs/releases/latest', ['user-agent' => 'skaut']);
