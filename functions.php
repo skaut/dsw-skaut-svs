@@ -365,4 +365,15 @@ function scout_check_for_updates( $transient ) {
 
 add_filter( 'pre_set_site_transient_update_themes', 'scout_check_for_updates' );
 
+add_filter( 'upgrader_source_selection', function ( $source ) {
+	preg_match( "~([^\/]+)\/$~", $source, $result );
+	if ( ! isset( $result[1] ) ) {
+		return $source;
+	}
+	$newFolderName = str_replace( $result[1], 'dsw-skaut-svs', $source );
+	rename( $source, $newFolderName );
+
+	return $newFolderName;
+}, 20, 1 );
+
 //set_theme_mod( 'custom_logo',attachment_url_to_postid(get_stylesheet_directory_uri() . "/images/skaut_svetlusky.png"));
