@@ -371,7 +371,7 @@ function scout_check_for_updates( $transient ) {
 add_filter( 'pre_set_site_transient_update_themes', 'scout_check_for_updates' );
 
 add_filter( 'upgrader_source_selection', function ( $source ) {
-	if (strpos( $theme, 'dsw-skaut-svs' ) === false || strpos( $theme, 'dsw-skaut-svs-companion' ) !== false) {
+	if (strpos( $source, 'dsw-skaut-svs' ) === false || strpos( $source, 'dsw-skaut-svs-companion' ) !== false) {
 		return $source;
 	}
 
