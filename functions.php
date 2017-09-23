@@ -351,14 +351,12 @@ function scout_check_for_updates( $transient ) {
 			}
 		}
 		$version = substr( $actual->tag_name, 1 );
-		if ( isset( $transient->checked[ $themeName ] ) ) {
-			if ( $asset !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
-				$transient->response[ $themeName ] = [
-					'new_version' => $version,
-					'url'         => $actual->html_url,
-					'package'     => $asset->browser_download_url
-				];
-			}
+		if ( $asset !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
+			$transient->response[ $themeName ] = [
+				'new_version' => $version,
+				'url'         => $actual->html_url,
+				'package'     => $asset->browser_download_url
+			];
 		}
 	}
 
