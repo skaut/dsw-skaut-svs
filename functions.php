@@ -343,7 +343,7 @@ function scout_check_for_updates( $transient ) {
 	}
 
 	if ( preg_match( '~\d+\.\d+~', $actual->tag_name ) === 1 ) {
-		$asset = null;
+		$package = $actual->zipball_url;
 		foreach ( $actual->assets as $a ) {
 			if ( $a->name === 'dsw-skaut-svs-release.zip' ) {
 				$asset = $a;
@@ -351,11 +351,11 @@ function scout_check_for_updates( $transient ) {
 			}
 		}
 		$version = substr( $actual->tag_name, 1 );
-		if ( $asset !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
+		if ( $package !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
 			$transient->response[ $themeName ] = [
 				'new_version' => $version,
 				'url'         => $actual->html_url,
-				'package'     => $asset->browser_download_url
+				'package'     => $package
 			];
 		}
 	}
