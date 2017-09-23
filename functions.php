@@ -328,7 +328,7 @@ function scout_check_for_updates( $transient ) {
 	$themeName = '';
 
 	foreach ( $transient->checked as $theme => $version ) {
-		if ( strpos( $theme, 'dsw-skaut-svs' ) !== false ) {
+		if ( strpos( $theme, 'dsw-skaut-svs' ) !== false && strpos( $theme, 'dsw-skaut-svs-companion' ) === false) {
 			$themeName = $theme;
 		}
 	}
