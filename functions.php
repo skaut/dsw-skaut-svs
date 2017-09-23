@@ -344,12 +344,6 @@ function scout_check_for_updates( $transient ) {
 
 	if ( preg_match( '~\d+\.\d+~', $actual->tag_name ) === 1 ) {
 		$package = $actual->zipball_url;
-		foreach ( $actual->assets as $a ) {
-			if ( $a->name === 'dsw-skaut-svs-release.zip' ) {
-				$asset = $a;
-				break;
-			}
-		}
 		$version = substr( $actual->tag_name, 1 );
 		if ( $package !== null && version_compare( $transient->checked[ $themeName ], $version, '<' ) ) {
 			$transient->response[ $themeName ] = [
