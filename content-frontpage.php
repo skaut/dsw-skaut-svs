@@ -64,11 +64,11 @@ $zerif_bigtitle_show = get_theme_mod('zerif_bigtitle_show');
 
 	/* Calendar */
 
-		$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
+		$scout_calendar_show = get_theme_mod('scout_calendar_show');
 
-	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
+	if( isset($scout_calendar_show) && $scout_calendar_show != 1 ):
 
-	get_template_part( 'sections/calendar' );
+	    get_template_part( 'sections/calendar' );
 
 	endif;
 
